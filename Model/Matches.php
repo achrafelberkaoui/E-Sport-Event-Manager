@@ -1,32 +1,11 @@
 <?php 
-class Equipe {
-    public $id, $Name, $Jeu;
-    function __construct($nom, $jeu)
-    {
-        $this->Name = $nom;
-        $this->Jeu = $jeu;
-
+    class Matches{
+        public static function setResult(PDO $con,$s1, $s2, $Match_id)
+        {
+            $gagnet = ($s1 > $s2) ? 1 : 2 ;
+            $stmt = $con->prepare (
+                "UPDATE matches SET Score_A = ?, Score_B = ?, GagnantID = ? WHERE id = ?"
+            );
+            $stmt->execute([$s1, $s2, $GagnantID, $Match_id]);
+        }
     }
-
-    
-    public function getAll ()
-    {
-        $conn = $this->nameBd->getConnection();
-    }
-
-    public function creatClub ()
-    {
-
-    }
-
-    public function delete ()
-    {
-
-    }
-    public function edite ()
-    {
-
-    }
-};
-
-

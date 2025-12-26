@@ -15,8 +15,19 @@ class Joueur extends Participant {
         $this->equipe_id = $equipe_id;
     }
 
+    public function checkId(){
+        $sql ="SELECT id FROM joueur WHERE EquipeID = :e";
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->execute([
+            ":e"=>$this->equipe_id
+        ]);
+       return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function create()
     {	
+    if($this->checkId()){
         $sql = "INSERT INTO joueur(Pseudo, Rôle, Salaire, EquipeID)
                 VALUES(:p, :r, :s, :e)";
         $stmt = $this->con->prepare($sql);
@@ -26,6 +37,8 @@ class Joueur extends Participant {
             ":s"=>$this->salaire,
             ":e"=>$this->equipe_id
         ]);
+    }
+        echo "id n'exist pas";
     }
 
     // jointure
