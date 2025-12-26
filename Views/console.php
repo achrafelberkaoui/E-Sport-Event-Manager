@@ -1,5 +1,5 @@
 <?php
-class Console {
+class Consolee {
     public function input($label){
         echo $label ." : ";
         $val = trim(fgets(STDIN));

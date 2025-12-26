@@ -1,5 +1,5 @@
 <?php
-require_once "console.php" ;
+include_once "console.php" ;
 do{
     echo "\n";
     echo "\n======= MENU ======= \n";
@@ -10,7 +10,7 @@ do{
     echo "5. Gestion de tournois \n" ;
     echo "6. Gestion des sponsors \n" ;
     echo "0. Exit \n";
-    $console = new Console();
+    $console = new Consolee();
 
     $choix = $console->input("Entre votre choix");
     switch ($choix) {
@@ -18,19 +18,19 @@ do{
     include "viewClub.php";
             break;
             case '2':
-    include "../Model/viewEquipe.php";
+    include "viewEquipe.php";
             break;
             case '3':
-    include "../Model/viewJoueur.php";
+    include "viewJoueur.php";
             break;
             case '4':
-    include "../Model/viewMatches.php";
+    include "viewMatches.php";
             break;
             case '5':
-    include "../Model/viewTournoi.php";
+    include "viewTournoi.php";
             break;
             case '6':
-    include "../Model/viewSponsors.php";
+    include "viewSponsors.php";
             break;
 
         default:
