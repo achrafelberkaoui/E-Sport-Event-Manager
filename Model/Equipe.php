@@ -1,6 +1,6 @@
 <?php 
 include_once "./bd/config.php";
-include "./Participant.php";
+include_once "./Participant.php";
 class Equipe extends Participant{
     private $jeu, $club_id;
 
